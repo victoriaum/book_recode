@@ -1,11 +1,61 @@
-﻿<!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="~{layouts/layout}">
 
 <div layout:fragment="content">
-하하하
+  <div id="container">
+
+    <div id="targetForm">
+      <span>2022 March All</span>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-sm-3">
+      <div class="col">
+        <div class="numberBoard">
+          <div class="count">47</div>
+          <div class="info">
+            <span class="info-title">OWLS</span><br>
+            <span>참여 회원수</span>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="numberBoard">
+          <div class="count">70</div>
+          <div class="info">
+            <span class="info-title">BOOKS</span><br>
+            <span>전체 독서량</span>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="numberBoard">
+          <div class="count">2431</div>
+          <div class="info">
+            <span class="info-title">SINCE</span><br>
+            <span>20.09.08</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
+      <div class="col">
+        <div class="graphBoard">
+          <span class="info-title">BOOKS</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="graphBoard">
+          <span class="info-title">BOOKS</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 </html>

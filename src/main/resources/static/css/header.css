@@ -1,0 +1,11 @@
+#headerTitle {
+  border: solid 0.01rem black;
+  padding: 1rem 2rem;
+  color: #3B271D;
+  font-weight: bold;
+  margin: 0 auto;
+}
+.icon {
+  width: 1.5rem;
+  float: right;
+}
