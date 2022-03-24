@@ -32,4 +32,8 @@ public class RecordService {
   public int memberCount(String date) {
     return recordRepository.memberCount(date);
   }
+
+  public List<String> bookList(String date) {
+    return recordRepository.bookList(date);
+  }
 }

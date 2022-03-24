@@ -1,6 +1,7 @@
 package com.book.record.domain;
 
 import java.util.Collection;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,5 +19,8 @@ public interface RecordRepository extends JpaRepository<Record, String> {
 
   @Query("SELECT COUNT(DISTINCT r.reader) FROM Record r WHERE r.record_date LIKE :date%")
   int memberCount(@Param("date") String date);
+
+  @Query("SELECT DISTINCT r.ISBN FROM Record r WHERE r.record_date LIKE :date% ORDER BY r.record_date")
+  List<String> bookList(@Param("date") String date);
 }
 
