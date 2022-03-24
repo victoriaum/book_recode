@@ -25,6 +25,9 @@ public class MainController{
   public String index(@RequestParam("date") String date, @RequestParam("member") String member
                       , Model m) throws ParseException {
     String[] dateArray = date.split("-");
+    if("all".equals(member)){
+      member = "All";
+    }
     m.addAttribute("filter",dateArray[0]+" "+dateArray[1]+" "+member);
 
     Date today = new Date();
@@ -32,7 +35,7 @@ public class MainController{
     System.out.println(today);
 
     // 모든 회원에 대한 정보를 표기하는 경우
-    if("all".equals(member)){
+    if("All".equals(member)){
       Date openDate = formatter.parse("2021/09/08");
       long diffSec = (today.getTime() - openDate.getTime()) / 1000;
       long diffDays = diffSec / (24*60*60);
