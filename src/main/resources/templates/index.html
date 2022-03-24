@@ -5,16 +5,14 @@
 
 <div layout:fragment="content">
   <div id="container">
-
     <div id="targetForm">
-      <span>2022 March All</span>
+      <span th:text="${filter}"></span>
     </div>
-
 
     <div class="row row-cols-1 row-cols-sm-3">
       <div class="col">
         <div class="numberBoard">
-          <div class="count">47</div>
+          <div class="count" th:text="${memberCount}"></div>
           <div class="info">
             <span class="info-title">OWLS</span><br>
             <span>참여 회원수</span>
@@ -23,7 +21,7 @@
       </div>
       <div class="col">
         <div class="numberBoard">
-          <div class="count">70</div>
+          <div class="count" th:text="${totalBooks}"></div>
           <div class="info">
             <span class="info-title">BOOKS</span><br>
             <span>전체 독서량</span>
@@ -32,7 +30,7 @@
       </div>
       <div class="col">
         <div class="numberBoard">
-          <div class="count">2431</div>
+          <div class="count" th:text="${diffDays}"></div>
           <div class="info">
             <span class="info-title">SINCE</span><br>
             <span>20.09.08</span>

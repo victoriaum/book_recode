@@ -1,15 +1,15 @@
 $(function(){
-  var todayDate = new Date();
-  var year = todayDate.getFullYear();
-  var month = todayDate.getMonth()+1;
+  let todayDate = new Date();
+  let year = todayDate.getFullYear();
+  let month = todayDate.getMonth()+1;
 
   if(month<10){
     month="0"+month;
   }
 
-  var url = document.location.href;
+  let url = document.location.href;
 
-  var questionMark = url.indexOf("?");
+  let questionMark = url.indexOf("?");
   if(questionMark==-1){
     location.href="/index?date="+year+"-"+month+"&member=all";
   }
@@ -34,17 +34,17 @@ function func_getTodaySchedule(todayDate){
     dataType: "json",
     data:{todayDate:todayDate},
     success: function(data){
-      var cnt = data.scheduleList.length;
+      let cnt = data.scheduleList.length;
 
       if(cnt>0) {    // 해당하는 일정이 있는 경우
         $.each(data.scheduleList, function (idx,val) {
-          var scheduleArray = val.split(",");
-          var length = scheduleArray.length;
+          let scheduleArray = val.split(",");
+          let length = scheduleArray.length;
 
           if($("#loginType").val()=="1"){
             func_requestCntDelete();  // 요청인원 지우기
 
-            for(var i=4; i<length; i++){
+            for(let i=4; i<length; i++){
               if(i==4){
                 attenderArray=scheduleArray[i];
               } else {

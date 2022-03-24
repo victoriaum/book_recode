@@ -24,4 +24,12 @@ public class RecordService {
           .collect(Collectors.toList());
     }
   }
+
+  public int totalBooks(String date) {
+    return recordRepository.totalBooks(date);
+  }
+
+  public int memberCount(String date) {
+    return recordRepository.memberCount(date);
+  }
 }
