@@ -39,19 +39,23 @@
       </div>
     </div>
 
-
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
       <div class="col">
-        <div class="graphBoard">
+        <div class="board">
           <span class="info-title">Latest Booklist</span>
-          <th:block>
-
-          </th:block>
+          <div class="detailBoard">
+            <th:block th:each="book:${bookList}">
+              <span th:text="${book}"></span>
+            </th:block>
+          </div>
         </div>
       </div>
       <div class="col">
-        <div class="graphBoard">
+        <div class="board">
           <span class="info-title">BOOKS</span>
+          <div class="detailBoard">
+
+          </div>
         </div>
       </div>
     </div>

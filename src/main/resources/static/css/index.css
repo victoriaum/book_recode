@@ -37,10 +37,13 @@
   display: inline-block;
   margin: 0 auto;
 }
-.graphBoard {
+.board {
   background-color: white;
   padding: 0.5rem;
   margin-bottom: 1.5rem;
+}
+.detailBoard {
+  border: solid 0.01rem #3B271D;
 }
 .info-title {
   font-weight: bold;
