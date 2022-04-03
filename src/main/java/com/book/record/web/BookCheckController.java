@@ -1,6 +1,9 @@
 package com.book.record.web;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -20,7 +23,7 @@ public class BookCheckController {
   @Value("${naver_cliendSK}")
   public static String clientSecret;
 
-  public static List<String> getBookTitle(String[] isbnArray){
+  public static List<String> getBookTitle(String[] isbnArray) throws IOException {
     List<String> titleArray = null;
 
     for (int i=0; i<isbnArray.length; i++){
@@ -40,7 +43,7 @@ public class BookCheckController {
 
 
   private static String get(String apiURL, Map<String, String> requestHeaders) throws IOException {
-   /* URL url = new URL(apiURL);
+    URL url = new URL(apiURL);
     HttpURLConnection con = (HttpURLConnection) url.openConnection();
     try {
       con.setRequestMethod("GET");
@@ -58,7 +61,18 @@ public class BookCheckController {
       throw new RuntimeException("API 요청과 응답 실패", e);
     } finally {
       con.disconnect();
-    }*/
+    }
   }
 
+  private static String readBody(InputStream body){
+    InputStreamReader streamReader = new InputStreamReader(body);
+    try (BufferedReader lineReader = new BufferedReader(streamReader)) {
+      StringBuilder responseBody = new StringBuilder(); String line;
+      while ((line = lineReader.readLine()) != null) {
+        responseBody.append(line);
+      }
+      return responseBody.toString();
+    } catch (IOException e) {
+      throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e); }
+  }
 }
